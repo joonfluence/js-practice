@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 연습</title>
+</head>
+<style>
+
+body{
+    padding:0;
+    margin:0;
+}
+div{
+    border:50px solid #1065e6;
+    padding:50px;
+    margin:50px;
+}
+#target{
+    width:100px;
+    height:100px;
+}
+
+</style>
+
+<!-- 
+    
+bottom: 500
+​
+height: 300
+​
+left: 200
+​
+right: 500
+​
+top: 200
+​
+width: 300
+​
+x: 200
+​
+y: 200
+
+엘리먼트의 위치를 의미하는 top, right의 값을 통해서 기준이 그 부모가 아니라 body라는 것을 알 수 있다. 
+
+-->
+
+<body>
+    <div>
+        <div id="target">
+            Coding
+        </div>
+    </div>
+<script>
+    var t = document.getElementById('target');
+    console.log(t.getBoundingClientRect());
+    console.log(t.offsetParent);
+</script>
+</body>
+</html>
