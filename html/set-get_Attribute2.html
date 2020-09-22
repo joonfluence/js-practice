@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 연습</title>
+</head>
+<body>
+    <a id="target" href="http://opentutorials.org">opentutorials</a>
+    <script>
+        var t = document.getElementById('target');
+        console.log(t.getAttribute('href'));
+        t.setAttribute('title', 'opentutorials.org');
+        console.log(t.hasAttribute('title'));
+        t.removeAttribute('title');
+        console.log(t.hasAttribute('title'));
+    </script>
+</body>
+</html>

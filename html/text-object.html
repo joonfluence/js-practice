@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 연습</title>
+    <style>
+        #target {
+            font-size: 77px;
+            font-family: georgia;
+            border-bottom: 1px solid black;
+            padding-bottom: 10px;
+        } p {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <p id="target">Cording everybody!</p>
+    <p> data : <input type="text" id="datasource" value="JavaScript" /></p>
+    <p> start :<input type="text" id="start" value="5" /></p>
+    <p> end : <input type="text" id="end" value="5" /></p>
+    <p class="button__list">
+        <input type="button" value="appendData(data)" />
+        <input type="button" value="deleteData(start,end)" />
+        <input type="button" value="insertData(start,data)" />
+        <input type="button" value="replaceData(start,end,data)" />
+        <input type="button" value="substringData(start,end)" />
+    </p>
+</body>
+<script>
+    // var button = document.getElementById('button__list');
+    // console.log(button);
+    // console.log(button.childNodes);
+    
+    var button = document.getElementsByClassName('button__list');
+    var button_childNodes;
+    // console.log(button);
+    // console.log(button[0].childNodes);
+    
+    function getChild(button){
+        for(i=1; i<button[0].childNodes.length; i+=2){
+
+    // 홀수 행 값만 button_childNodes에 넣는 것은 가능했음
+        button_childNodes = button_childNodes + button[0].childNodes[i];
+    }
+        // console.log(button_childNodes[0]);
+        
+        return button_childNodes;
+    }
+
+    fucntion printChild(child__list){
+        for(i=0; i<child__list.length; i++){
+            console.log(child__list[i]);
+        }
+    }
+
+    getChild(button);
+    printChild(button);
+
+    // function callAppendData(){
+
+    // }
+
+    // function callDeleteData(){
+
+    // }
+
+    // function callInsertData(){
+
+    // }
+
+    // function callReplaceData(){
+
+    // }
+
+    // function callSubstringData(){
+
+    // }
+
+</script>
+</html>

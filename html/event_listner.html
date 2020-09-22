@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 연습</title>
+</head>
+<body>
+    <input type="button" id="target" value="button" />
+<script>
+    var t = document.getElementById('target');
+    // t.addEventListener('click', function(event){
+    //     alert('Hello World!, '+event.target.value);
+    // });
+
+
+    // 이와 같이, 하나의 엘리먼트에 대하여 복수의 이벤트를 설정하기 용이하다. 
+    
+    t.addEventListener('click', function(event){
+        alert(1);
+    });
+
+    t.addEventListener('click', function(event){
+        alert(2);
+    });
+
+</script>
+</body>
+
+</html>

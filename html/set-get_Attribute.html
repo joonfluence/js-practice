@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 연습</title>
+</head>
+<style>
+    #selected {
+        color:red;
+    }
+</style>
+<body>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li id="selected">JavaScript</li>
+    </ul>
+    <input id="button" type="button" value="dark" onclick="set_class()">
+<script>
+    var button = document.getElementById('button');
+    
+    function set_class (){
+        button.setAttribute('class', 'button');
+        console.log(button.getAttribute('type'));
+    }
+</script>
+</body>
+</html>
