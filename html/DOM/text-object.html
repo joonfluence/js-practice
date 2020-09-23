@@ -29,54 +29,31 @@
     </p>
 </body>
 <script>
-    // var button = document.getElementById('button__list');
-    // console.log(button);
-    // console.log(button.childNodes);
-    
+
     var button = document.getElementsByClassName('button__list');
     var button_childNodes;
-    // console.log(button);
-    // console.log(button[0].childNodes);
-    
-    function getChild(button){
-        for(i=1; i<button[0].childNodes.length; i+=2){
+    console.log(button);
+    console.log(button[0].childNodes);
+    console.log(button[0].childNodes.length);
 
+    function getChild(list){
+        for(i=1; i<list[0].childNodes.length; i+=2){
     // 홀수 행 값만 button_childNodes에 넣는 것은 가능했음
-        button_childNodes = button_childNodes + button[0].childNodes[i];
+        button_childNodes = button_childNodes + list[0].childNodes[i];
     }
-        // console.log(button_childNodes[0]);
-        
+        console.log(list[0].childNodes[1]);
+        console.log(button_childNodes[0]);
         return button_childNodes;
     }
 
-    fucntion printChild(child__list){
+    function printChild(child__list){
         for(i=0; i<child__list.length; i++){
             console.log(child__list[i]);
         }
     }
 
     getChild(button);
-    printChild(button);
-
-    // function callAppendData(){
-
-    // }
-
-    // function callDeleteData(){
-
-    // }
-
-    // function callInsertData(){
-
-    // }
-
-    // function callReplaceData(){
-
-    // }
-
-    // function callSubstringData(){
-
-    // }
 
 </script>
 </html>
+

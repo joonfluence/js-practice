@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Example</title>
+</head>
+<body>
+    
+<!-- 
+1) inline-style 방식 
+
+<input type="button" value="click" onclick="displayTime()">
+<script>
+
+function displayTime(){
+    var d = new Date();
+    console.log("" + d.toLocaleDateString());
+}
+
+</script>
+-->
+<!-- 
+2) 프로퍼티 방식 
+
+<input id="button" type="button" value="click">
+<script>
+
+    function displayTime(){
+        var d = new Date();
+        console.log("" + d.toLocaleDateString());
+    }
+
+    window.onload = function() {
+        var button = document.getElementById("button");
+        button.onclick = displayTime;
+    };
+
+</script> 
+-->
+<!-- 
+3) addEventListner 방식
+-->
+
+    <input id="button" type="button" value="click">
+    <script>
+        
+    function displayTime(){
+        var d = new Date();
+        console.log("" + d.toLocaleDateString());
+    }
+    
+    window.onload = function() {
+        var button = document.getElementById("button");
+        button.addEventListener("click", displayTime, false);
+        button.addEventListener("click", function(e) {
+            console.log("second listner: "+ e); }, false);
+    };
+
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 연습</title>
+</head>
+<body>
+    <ul id="target">
+        <li>HTML</li>
+        <li>CSS</li>
+    </ul>
+    <input id="button1" type="button" value="appendChild()">
+    <input id="button2" type="button" value="insertBefore()">
+    <script>
+        
+        function callAppendChild(){
+            var target = document.getElementById('target');
+            var li = document.createElement('li');
+            var text = document.createTextNode('JavaScript');
+            li.appendChild(text);
+            target.appendChild(li);
+        }
+
+        function callInsertBefore(){
+            var target = document.getElementById('target');
+            var li = document.createElement('li');
+            var text = document.createTextNode('jQuery');
+            li.appendChild(text);
+            target.insertBefore(li, target.firstChild);
+        }
+
+        var append = document.getElementById('button1');
+        var insert = document.getElementById('button2');
+
+        append.addEventListener('click', callAppendChild);
+        insert.addEventListener('click', callInsertBefore);
+        
+
+    </script>
+</body>
+</html>
