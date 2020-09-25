@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <style>
+       .box {
+          width: 100px;
+          height: 100px;
+          padding: 10px;
+          border: 1px solid #000;
+        }
+
+        .box2 {
+          color: #fff;
+          background: #000;
+          width: 50px;
+          height: 50px;
+          border: 1px solid #000;
+        }
+
+        .box3 {
+          color: #fff;
+          background: #fff;
+          width: 10px;
+          height: 10px;
+          border: 1px solid #000;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>DOM event flow</h1>
+    <div id="box1" class="box">
+      <div id="box2" class="box2">
+        <div id="box3" class="box3">
+        </div>
+      </div>
+    </div>
+    <script>
+    
+        box1.addEventListener('click', function(e) {
+        console.log('box1 클릭')
+        }, true);
+
+        // 3번째 인자 true, capture
+
+        box2.addEventListener('click',function(e) {
+        console.log('box2 클릭')
+        });
+
+        box3.addEventListener('click',function(e) {
+        console.log('box3 클릭')
+        });
+    </script>
+  </body>
+</html>

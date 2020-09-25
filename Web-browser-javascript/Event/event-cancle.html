@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<!--
+    1. 인라인 방식
+    
+    <p>
+        <label>prevent event on</label><input id="prevent" type="checkbox" name="eventprevent" value="on">
+    </p>
+    <p>
+        <a href="http://opentutorials.org" onclick="if(document.getElementById('prevent').checked) return false;">opentutorials</a>
+    </p>
+    <p>
+        <form action="http://opentutorials.org" onsubmit="if(document.getElementById('prevent').checked) return false;">
+            <input type="submit">
+        </form>
+    </p> 
+-->
+
+<!-- 
+    2. 프로퍼티 방식
+
+    
+
+ -->
+<!-- 
+    3. addEventListener 방식
+    <p>
+        <label>prevent event on</label><input id="prevent" type="checkbox" name="eventprevent" value="on">
+    </p>
+    <p>
+        <a href="http://opentutorials.org">opentutorials</a>
+    </p>
+    <p>
+        <form action="http://opentutorials.org">
+            <input type="submit">
+        </form>
+    </p>
+
+    <script>
+        document.querySelector('a').addEventListener('click', function(event){
+            if(document.getElementById('prevent').checked)
+                event.preventDefault();
+        });
+
+        document.querySelector('form').addEventListener('submit', function(event){
+            if(document.getElementById('prevent').checked)
+                event.preventDefault();
+        }); -->
+    </script>
+</body>
+</html>
