@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var x = "declared outside function";
+
+        exampleFunction();
+        function exampleFunction() {
+            console.log("Inside function");
+            console.log(x);
+        }
+        
+        console.log("Outside function");
+        console.log(x);
+    </script>
+</body>
+</html>

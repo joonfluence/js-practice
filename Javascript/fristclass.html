@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var movie = {
+            name: '옥자',
+            director: '봉준호',
+            show: function() {
+                console.log(this.name + ' ' + this.director);
+            }
+        }
+
+        var add = function(a,b) {
+            return console.log(a + b);
+        }
+
+        // movie.show();
+        
+        var newAdd = add;
+        newAdd(2, 3);
+    </script>
+</body>
+</html>
