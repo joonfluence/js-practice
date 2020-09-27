@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script> 
+</head>
+<body>
+    <input type="button" id="btn" value="button">Add Hightlight
+    <script>
+        function double (arr){
+            let result = [];
+            for (let i = 0; i < arr.length; i++){
+                result.push(arr[i] * 2);
+            }
+            return result;
+        }
+
+        function add (arr){
+            let result = 0;
+            for (let i =0; i < arr.length; i++){
+                result += arr[i];
+            }
+            return result;
+        }
+
+        $("btn").click(function(){
+            $(this).toggleClass("highlight")
+            $(this).text() === 'Add Hightlight'
+                ? $(this).text('Remove Hightlight')
+                : $(this).text('Add Hightlight')
+        })
+
+
+/*
+        var button = document.getElementById('btn');
+        var wrapper = document.getElementById('button_wrapper');
+        button.addEventListener('click', function(){
+            button.setAttribute('title', 'highlight');
+            console.log(wrapper.innerText);
+            if(wrapper.innerText === 'Add Hightlight'){
+                wrapper.innerHTML("Remove Highlight");
+            } else {
+                wrapper.innerHTML("Add Hightlight");
+            }
+        })
+*/
+
+    </script>
+</body>
+</html>
