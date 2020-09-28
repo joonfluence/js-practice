@@ -7,7 +7,7 @@
 .js-clock {
     margin: 0 auto;
     position: absolute;
-    background: url(../image/bike-riding-5557589_1920.png) no-repeat;
+    background: url(../image/bike-riding-5557589_1920.png) 50% 0% no-repeat;
     background-size: 200px 200px;
     width: 300px;
     height: 300px;
@@ -16,6 +16,7 @@
 }
 
 .js-clock h1 {
+    font-size: 1em;
     margin-top: 200px;
     margin-left: 38px;
 }
