@@ -4,6 +4,10 @@
     border: 0;
 }
 
+li {
+    list-style: none;
+}
+
 .js-clock {
     margin: 0 auto;
     position: absolute;
@@ -16,7 +20,7 @@
 }
 
 .js-clock h1 {
-    font-size: 1em;
+    font-size: 1.2em;
     margin-top: 200px;
     margin-left: 38px;
 }
@@ -24,7 +28,19 @@
 .js-form, .js-greetings {
     position: absolute;
     font-size: 2em;
-    left: 36%;
+    left: 40%;
+    top: 60%;
+}
+
+.js-toDoForm {
+    position: absolute;
+    left: 40%;
+    top: 65%;
+}
+
+.js-toDoList {
+    position: absolute;
+    left: 40%;
     top: 70%;
 }
 
