@@ -11,7 +11,7 @@ function loadTime(){
     seconds = clock.getSeconds(),
     day = clock.getDay(),
     day_2 = daySelect(day);
-    
+
     // 2020/09/29/06:30'30
     
     clockContent.textContent = `${year}/${month < 10 ? `0${month}` : month}/${date < 10 ? `0${date}` : date}/${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}'${seconds < 10 ? `0${seconds}` : seconds} ${day_2}day`;
@@ -47,3 +47,4 @@ function init(){
 }
 
 init();
+
