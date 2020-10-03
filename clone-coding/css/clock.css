@@ -28,20 +28,20 @@ li {
 .js-form, .js-greetings {
     position: absolute;
     font-size: 2em;
-    left: 40%;
-    top: 60%;
+    left: 34%;
+    top: 70%;
 }
 
 .js-toDoForm {
     position: absolute;
-    left: 40%;
-    top: 65%;
+    left: 35%;
+    top: 80%;
 }
 
 .js-toDoList {
     position: absolute;
-    left: 40%;
-    top: 70%;
+    left: 50%;
+    top: 50%;
 }
 
 .blind {

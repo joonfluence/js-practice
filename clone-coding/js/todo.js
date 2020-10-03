@@ -6,8 +6,8 @@ const toDos = [];
 
 // JSON.stringify(toDos)를 통해, Object 형식의 값을 String으로 바꿔준다. localStorage는 사용자가 입력한 데이터가 String이 아니면 저장하지 못하기 때문이다. 
 
-function saveToDos(){
-    localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
+function saveToDos(toDoObj){
+    localStorage.setItem(TODOS_LS, JSON.stringify(toDoObj));
 }
 
 // ToDoList는 사용자가 입력한 값을 바탕으로 새롭게 값을 추가하여야 하므로, createElement()로 HTML 태그를 만들어주고, 사용자가 입력한 값을 해당 태그 안에 입력해준다. 또한 DOM 구조 상, ul 태그 위에 li, li 태그 안에 span과 button을 넣어준다. (ul 태그는 기존에 존재하던 요소이다.)
@@ -62,8 +62,10 @@ function loadToDos(){
     const loadedToDos = localStorage.getItem(TODOS_LS);
     if(loadedToDos !== null){
         const parsedToDos = JSON.parse(loadedToDos);
+
 // Object로 변환된 것을 배열 안에 넣어 줄 것임. 
-        parsedToDos.forEach(function(toDo){
+
+            parsedToDos.forEach(function(toDo){
             paintToDo(toDo.text);
         });
     }
