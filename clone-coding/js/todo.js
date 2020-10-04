@@ -11,19 +11,19 @@ function saveToDos(){
 }
 
 // ToDoList는 사용자가 입력한 값을 바탕으로 새롭게 값을 추가하여야 하므로, createElement()로 HTML 태그를 만들어주고, 사용자가 입력한 값을 해당 태그 안에 입력해준다. 또한 DOM 구조 상, ul 태그 위에 li, li 태그 안에 span과 button을 넣어준다. (ul 태그는 기존에 존재하던 요소이다.)
+const li = document.createElement("li");
+const delBtn = document.createElement("button");
+const span = document.createElement("span");
+const newId = toDos.length + 1;
+delBtn.innerText = "✔";
+delBtn.addEventListener("click", deleteToDo);
+li.appendChild(delBtn);
+li.appendChild(span);
+li.id = newId;
+toDoList.appendChild(li);
 
 function paintToDo(text){
-    const li = document.createElement("li");
-    const delBtn = document.createElement("button");
-    const span = document.createElement("span");
-    const newId = toDos.length + 1;
-    delBtn.innerText = "✔";
-    delBtn.addEventListener("click", deleteToDo);
     span.innerText = text;
-    li.appendChild(delBtn);
-    li.appendChild(span);
-    li.id = newId;
-    toDoList.appendChild(li);
     const toDoObj = {
         text: text,
         id: newId
