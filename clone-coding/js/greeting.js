@@ -22,7 +22,7 @@ function handleSubmit(event){
     event.preventDefault(); // 기본 이벤트로 지정된 것을 막아준다. 
     const currentValue = input.value; 
     paintGreeting(currentValue); // 사용자가 입력한 문자를 매개변수로 넘겨준다. 
-    saveName(currentValue); // 
+    saveName(currentValue); 
 }
 
 function askForName(){

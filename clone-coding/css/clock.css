@@ -13,14 +13,12 @@ li {
     position: absolute;
     background: url(../image/bike-riding-5557589_1920.png) 50% 0% no-repeat;
     background-size: 200px 200px;
-    width: 300px;
-    height: 300px;
     left: 30%;
     top: 30%;
 }
 
 .js-clock h1 {
-    font-size: 1.2em;
+    font-size: 1.5em;
     margin-top: 200px;
     margin-left: 38px;
 }
@@ -28,20 +26,20 @@ li {
 .js-form, .js-greetings {
     position: absolute;
     font-size: 2em;
-    left: 34%;
-    top: 70%;
+    left: 37.5%;
+    top: 58%;
 }
 
 .js-toDoForm {
     position: absolute;
-    left: 35%;
-    top: 80%;
+    left: 38%;
+    top: 75%;
 }
 
 .js-toDoList {
     position: absolute;
-    left: 50%;
-    top: 50%;
+    left: 38%;
+    top: 80%;
 }
 
 .blind {

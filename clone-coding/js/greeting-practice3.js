@@ -2,8 +2,8 @@ const form = document.querySelector('.js-form'),
 input = form.querySelector('input'),
 greeting = document.querySelector('.js-greetings'),
 user_LS = "currentUser",
-SHOWING_CN = "shwoing",
-BLIND_CN = "blind";
+SHOWING_CN = 'shwoing',
+BLIND_CN = 'blind';
 
 function saveName(text){
     localStorage.setItem(user_LS,`${text}`);
@@ -19,11 +19,11 @@ function handleSubmit(event){
 function askForName(){
     form.classList.remove(BLIND_CN);
     form.addEventListener('submit', handleSubmit);
-    form.classList.add(BLIND_CN);
 }
 
 function paintGreeting(text){
     greeting.classList.remove(BLIND_CN);
+    form.classList.add(BLIND_CN);
     greeting.textContent = `Hello, ${text}`;
 }
 
