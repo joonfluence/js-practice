@@ -1,0 +1,11 @@
+* { margin: 0; padding: 0; border: 0;}
+ul { list-style: none;}
+#wrap { max-width: 600px; margin: 0 auto; }
+.container { display: flex; flex-wrap: wrap; margin-top: 100px;}
+.box { width: 300px; height: 300px;}
+.do { background-color: rgb(78, 192, 78); }
+.decide { background-color: rgb(212, 162, 69); }
+.delegate { background-color: rgb(230, 42, 42); }
+.delete { background-color: rgb(243, 77, 77); }
+.blind { display: none;}
+.showing { display: inline;}
