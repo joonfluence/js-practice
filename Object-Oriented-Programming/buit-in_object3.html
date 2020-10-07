@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        Object.prototype.contain = function(needle){
+            for(var name in this){
+                if(this[name] === needle){
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        var o = {'name': 'egoing', 'city': 'seoul'};
+        var a = ['egoing', 'leezche', 'grapittie'];
+
+        for(var name in o){
+           console.log(name); // name, city, contain 
+        }
+
+        for(var name in a){
+           console.log(name); // egoing, leezche, grapittie, contain
+        }
+
+    </script>
+</body>
+</html>
