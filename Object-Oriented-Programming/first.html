@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var person = {} // "객체란 데이터를 담기 위한 상자이다."
+        person.name = 'egoing'; // 객체 내의 변수 : 프로퍼티
+        person.introduce = function (){ // 객체 내의 함수 : 메소드 
+            return 'My name is' + this.name;
+        }
+        document.write(person.introduce());
+
+        var person1 = {
+            'name' : 'egoing',
+            'introduce' : function(){
+                return 'My name is '+this.name;
+            }
+        }
+
+        var person2 = {
+            'name' : 'leezche',
+            'introduce' : function(){
+                return 'My name is '+this.name;
+            }
+        }
+    </script>
+</body>
+</html>

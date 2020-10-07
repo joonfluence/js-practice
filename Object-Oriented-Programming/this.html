@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 함수 호출, this는 자신이 속한 객체를 가리킨다  
+        function func(){ 
+            if(window == this){
+                document.write("window === this ");
+            }
+        }
+
+        // func();
+
+        // 메소드의 호출, 여기선  
+
+        var o = {
+            func : function(){
+                if(o === this){
+                    document.write("o === this");
+                }
+            }
+        }
+        
+        o.func();
+
+
+    </script>
+</body>
+</html>
