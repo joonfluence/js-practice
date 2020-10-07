@@ -19,75 +19,122 @@ const input = {
     delete : form.delete.querySelector(".delete-input")
 }
 
-doToDoList = document.querySelector(".do-toDoList");
-const doToDo_LS = "Do-ToDos";
-let doToDos = [];
+const ToDoList = {
+    do : document.querySelector(".do-toDoList"),
+    decide : document.querySelector(".decide-toDoList"),
+    delegate : document.querySelector(".delegate-toDoList"),
+    delete : document.querySelector(".delete-toDoList")
+}
+
+const ToDo_LS = {
+    do : "do-ToDos",
+    decide : "decide-ToDos",
+    delegate : "delegate-ToDos",
+    delete : "delete-ToDOs"
+}
+
+let toDos = [[], [], [], []];
 
 function saveToDos(){
-    localStorage.setItem(doToDo_LS, JSON.stringify(doToDos));
+    localStorage.setItem(ToDo_LS.do, JSON.stringify(toDos[0]));
 }
 
 function paintToDos(text){
     const li = document.createElement('li');
     const span = document.createElement('span');
     const delBtn = document.createElement('button');
-    const newId = doToDos.length + 1;
-    doToDoList.appendChild(li);
+    const newId = toDos[0].length + 1;
+
     li.appendChild(delBtn);
     li.appendChild(span);
     li.setAttribute("id", newId);
     delBtn.innerHTML = "❌";
     delBtn.addEventListener("click", deleteToDos);
+
     span.innerHTML = text;
     const toDoObj = {
         text: text,
         id: newId
     }
-    doToDos.push(toDoObj);
+
+    ToDoList.do.appendChild(li);
+    toDos[0].push(toDoObj);    
     saveToDos();
 }
+
 
 function deleteToDos(event){
     const li = event.target.parentNode;
-    doToDoList.removeChild(li);
-    const cleanToDos = doToDos.filter(function(toDo){
+
+    ToDoList.do.removeChild(li);
+        const cleanToDos_do = toDos[0].filter(function(toDo){
         return toDo.id !== parseInt(li.id);
     });
-
-    doToDos = cleanToDos;
+    toDos.do = cleanToDos_do;
     saveToDos();
 }
 
+
 function handleSubmit(event){
     event.preventDefault();
-    const textContent = doInput.value;
-    paintToDos(textContent);
-    doInput.value = "";
-    doInput.classList.remove("showing");
+    const clicked = event.target.classList[0];
+    console.log(clicked);
+    let clicked_select = clicked.split("-",1)[0];
+    console.log(clicked_select);
+    switch(clicked_select){
+        case 'do':
+            const textContent = input.do.value;
+            paintToDos(textContent);
+            input.do.value = "";
+            input.do.classList.remove("showing");
+            break;
+        case 'decide':
+            const textContent_decide = input.decide.value;
+            paintToDos_decide(textContent_decide);
+            input.decide.value = "";
+            input.decide.classList.remove("showing");
+            break;
+        case 'delegate':
+            const textContent_delegate = input.delegate.value;
+            paintToDos_delegate(textContent_delegate);
+            input.delegate.value = "";
+            input.delegate.classList.remove("showing");
+            break;
+        case 'delete':
+            const textContent_delete = input.delete.value;
+            paintToDos_delete(textContent_delete);
+            input.delete.value = "";
+            input.delete.classList.remove("showing");
+            break;
+    }
 }
 
 function handleClick(event){
     const clicked = event.target.classList[0];
-    var clicked_select = clicked.split("-",1)[0];
-    
+    let clicked_select = clicked.split("-",1)[0];  
+
     switch(clicked_select){
         case 'do':
             input.do.classList.add("showing");
-            form.do.addEventListener("submit", handleSubmit);        
+            form.do.addEventListener("submit", handleSubmit);
+            break;      
         case 'decide':
             input.decide.classList.add("showing");
             form.decide.addEventListener("submit", handleSubmit);
+            break;
         case 'delegate':
-            
-            ;
+            input.delegate.classList.add("showing");
+            form.delegate.addEventListener("submit", handleSubmit);
+            break;
         case 'delete':
-            ;
-
+            input.delete.classList.add("showing");
+            form.delete.addEventListener("submit", handleSubmit);
+            break;
     }
 }
 
 function loadToDos(){
-    const loaded_doTodos = localStorage.getItem(doToDo_LS);
+    const loaded_doTodos = localStorage.getItem(ToDo_LS.do);
     if(loaded_doTodos !== null){
         const parsed_doTodos = JSON.parse(loaded_doTodos);
         parsed_doTodos.forEach(function(toDo){
@@ -99,9 +146,6 @@ function loadToDos(){
 function init(){
     loadToDos();
     btn.do.addEventListener("click", handleClick);
-    btn.decide.addEventListener("click", handleClick);
-    btn.delegate.addEventListener("click", handleClick);
-    btn.delete.addEventListener("click", handleClick);
 }
 
 init();
