@@ -26,6 +26,7 @@ function paintToDos(text){
     const delBtn = document.createElement('button');
     const newId = toDos.length + 1;
 
+    li.classList.add("js-toDos");
     li.appendChild(delBtn);
     li.appendChild(span);
     li.setAttribute("id", newId);

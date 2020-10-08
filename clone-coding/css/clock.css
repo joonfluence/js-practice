@@ -8,6 +8,12 @@ li {
     list-style: none;
 }
 
+.js-container {
+    background: violet;
+    width: 300px;
+    height: 500px;
+}
+
 .js-clock {
     margin: 0 auto;
     position: absolute;
@@ -40,6 +46,14 @@ li {
     position: absolute;
     left: 38%;
     top: 80%;
+}
+
+.js-toDos {
+    color: whitesmoke;
+}
+
+.js-toDos span {
+    font-size: 1.5em;
 }
 
 .blind {
