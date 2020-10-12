@@ -7,10 +7,11 @@ function loadTime(){
     const month = time.getMonth();
     const date = time.getDate();
     const hour = time.getHours();
+    const minute = time.getMinutes();
     const seconds = time.getSeconds();
     const day = time.getDay();
     let returnDay = daySelect(day);
-    clockContent.textContent = `${year}년 ${month < 10 ? `0${month}` : month}월 ${date < 10 ? `0${date}` : date}일 ${hour < 10 ? `0${hour}시` : `${hour}시`} ${seconds < 10 ? `0${seconds}` : seconds}초 ${returnDay}`;
+    clockContent.textContent = `${month < 10 ? `0${month}` : month}월 ${date < 10 ? `0${date}` : date}일 ${hour < 10 ? `0${hour}시` : `${hour}시`} ${minute < 10 ? `0${minute}` : `${minute}분` } ${seconds < 10 ? `0${seconds}` : seconds}초 ${returnDay}`;
 }
 
 function daySelect(dayNum){

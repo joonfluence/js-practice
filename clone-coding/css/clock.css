@@ -18,11 +18,11 @@ li {
     margin: 0 auto;
     position: absolute;
     left: 30%;
-    top: 30%;
+    top: 20%;
 }
 
 .js-clock h1 {
-    color: rgba(245, 245, 245, 0.74);
+    color: white;
     font-size: 2em;
     margin-top: 200px;
     margin-left: 38px;
@@ -31,7 +31,7 @@ li {
 .js-form, .js-greetings {
     position: absolute;
     font-size: 2em;
-    color: rgba(245, 245, 245, 0.74);
+    color: white;
     left: 37.5%;
     top: 68%;
 }

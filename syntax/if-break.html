@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function cc(card) {
+        // Only change code below this line
+        
+        var holdMessage = " Hold";
+        var betMessage = " Bet";
+
+        if(card == 2 || card == 3 || card == 4 || card == 5 || card == 6){
+            count++;
+            break;
+        } else if(card == 7 || card == 8 || card == 9){
+            count;
+            break;
+        } else if(card == 10 || card == 'J' || card == 'Q' || card == 'K' || card == 'A'){
+            count--;
+            break;
+        } else {
+            console.log("요구하는 값을 입력해주세요.");
+        }
+
+        // console.log(arr.length);
+
+        if(count > 0){
+            return count+holdMessage;
+        } else {
+            return count+betMessage;
+        }
+
+        // Only change code above this line
+        }
+
+        cc(2); cc(3); cc(7); cc('K'); cc('A');
+    </script>
+</body>
+</html>
