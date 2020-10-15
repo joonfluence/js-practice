@@ -44,8 +44,10 @@ const fourth = new ToDoList(".delete-form", ".delete-btn", ".delete-input", ".de
 let toDos = [[], [], [], []];
 
 function loadToDos(){
-
+    
 }
+
+
 
 function init(){
     loadToDos();

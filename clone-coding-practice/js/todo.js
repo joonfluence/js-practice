@@ -1,92 +1,41 @@
 let toDos = [[], [], [], []];
 
-function ToDoList(formName, btnName, inputName, listName){
-    this.form = document.querySelector(formName),
-    this.btn = this.form.querySelector(btnName),
-    this.input = this.form.querySelector(inputName),
-    this.ToDoList = document.querySelector(listName),
-    this.paintToDos = function(section, num, text){
-        const li = document.createElement('li');
-        const span = document.createElement('span');
-        const delBtn = document.createElement('button');
-        const newId = toDos[num].length + 1;
-        li.appendChild(delBtn);
-        li.appendChild(span);
-        li.setAttribute("id", newId);
-        delBtn.innerHTML = "❌";
-        delBtn.addEventListener("click", deleteToDos);
-        span.innerHTML = text;
-        const toDoObj = {
-            text: text,
-            id: newId
-        }
-        section.ToDoList.appendChild(li);
-        toDos[num].push(toDoObj);    
-        saveToDos(num);
-    }
-    this.saveToDos = function(num){
-        localStorage.setItem(ToDo_LS.do, JSON.stringify(toDos[num]));
-    }
-    this.deleteToDos = function(section, num){
-        const li = event.target.parentNode;
-        section.ToDoList.removeChild(li);
-            const cleanToDos_do = toDos[num].filter(function(toDo){
-            return toDo.id !== parseInt(li.id);
-        });
-        toDos[num] = cleanToDos_do;
-        saveToDos();
-    }
+function saveToDos(){
+    localStorage.setItem(toDos_LS.do, JSON.stringify(toDos[0]));
 }
 
-const first = new ToDoList(".do-form", ".do-btn", ".do-input", ".do-toDoList");
-const second = new ToDoList(".decide-form", ".decide-btn", ".decide-input", ".decide-toDoList");
-const third = new ToDoList(".delegate-form", ".delegate-btn", ".delegate-input", ".delegate-toDoList");
-const fourth = new ToDoList(".delete-form", ".delete-btn", ".delete-input", ".delete-toDoList");
+function paintToDos(text){
+    const li = document.createElement('li');
+    const span = document.createElement('span');
+    const delBtn = document.createElement('button');
+    const newId = toDos[0].length + 1;
 
-const toDos_LS = {
-    first : "do-ToDos",
-    second : "decide-ToDos",
-    third : "delegate-ToDos",
-    fourth : "delete-ToDOs"
+    li.appendChild(delBtn);
+    li.appendChild(span);
+    li.setAttribute("id", newId);
+    delBtn.innerHTML = "❌";
+    delBtn.addEventListener("click", deleteToDos);
+
+    span.innerHTML = text;
+    const toDoObj = {
+        text: text,
+        id: newId
+    }
+
+    first.ToDoList.appendChild(li);
+    toDos[0].push(toDoObj);    
+    saveToDos();
 }
 
-
-// function saveToDos(){
-//     localStorage.setItem(toDos_LS.do, JSON.stringify(toDos[0]));
-// }
-
-// function paintToDos(text){
-//     const li = document.createElement('li');
-//     const span = document.createElement('span');
-//     const delBtn = document.createElement('button');
-//     const newId = toDos[0].length + 1;
-
-//     li.appendChild(delBtn);
-//     li.appendChild(span);
-//     li.setAttribute("id", newId);
-//     delBtn.innerHTML = "❌";
-//     delBtn.addEventListener("click", deleteToDos);
-
-//     span.innerHTML = text;
-//     const toDoObj = {
-//         text: text,
-//         id: newId
-//     }
-
-//     first.ToDoList.appendChild(li);
-//     toDos[0].push(toDoObj);    
-//     saveToDos();
-// }
-
-// function deleteToDos(event){
-//     const li = event.target.parentNode;
-//     first.ToDoList.removeChild(li);
-//         const cleanToDos_do = toDos[0].filter(function(toDo){
-//         return toDo.id !== parseInt(li.id);
-//     });
-//     toDos[0] = cleanToDos_do;
-//     saveToDos();
-// }
+function deleteToDos(event){
+    const li = event.target.parentNode;
+    first.ToDoList.removeChild(li);
+        const cleanToDos_do = toDos[0].filter(function(toDo){
+        return toDo.id !== parseInt(li.id);
+    });
+    toDos[0] = cleanToDos_do;
+    saveToDos();
+}
 
 function handleSubmit(event){
     event.preventDefault();
@@ -96,9 +45,9 @@ function handleSubmit(event){
     switch(clicked_select){
         case 'do':
             const textContent = first.input.value;
-            first.paintToDos(first, 0, textContent);
-            first.input.value = "";
-            first.input.classList.remove("showing");
+            paintToDos(first, 0, textContent);
+            input.value = "";
+            input.classList.remove("showing");
             break;
         // case 'decide':
         //     const textContent_decide = input.decide.value;
@@ -122,7 +71,10 @@ function handleSubmit(event){
 }
 
 function handleClick(event){
+    const click = event.target;
+    console.log(click);
     const clicked = event.target.classList[0];
+    console.log(clicked);
     let clicked_select = clicked.split("-",1)[0];  
 
     switch(clicked_select){
@@ -156,8 +108,8 @@ function loadToDos(section){
 }
 
 function init(){
-    loadToDos(first);
-    first.btn.addEventListener("click", handleClick);
+    loadToDos();
+    btn.addEventListener("click", handleClick);
 
     /*
     second.btn.addEventListener("click", handleSubmit);
