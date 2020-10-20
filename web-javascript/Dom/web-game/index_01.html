@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamedev Canvas Workshop</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="index_02.js" defer></script> -->
+</head>
+<body>
+    <canvas id="myCanvas" width="480" height="320"></canvas>
+    <script>
+        let canvas = document.getElementById("myCanvas");
+        let ctx = canvas.getContext("2d");
+        let x = canvas.width/2;
+        let y = canvas.height-30;
+        let dx = 2;
+        let dy = -2;
+        let ballRadius = 10;
+
+        function drawBall(){
+            ctx.beginPath();
+            ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+            ctx.fillStyle = "#0095DD";
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function draw(){
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawBall();
+
+            /* 
+            
+            1) canvas의 width를 넘어서 움직이려 할 때, x 값의 증감 방향을 반대로 바꿔준다. 
+             - x 값이 증가할수록, 공은 오른쪽으로 움직인다. 너무 커져서 canvas.width-ballRadius보다 커지면 dx의 값을 -로 바꿔준다. 
+             - x 값이 낮아질수록, 공은 왼쪽으로 움직인다. 너무 작아져서 ballRadius보다 작아지면 dx의 값을 +로 바꿔준다. 
+
+            */   
+
+            if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
+                dx = -dx;
+            }
+
+            /*
+            
+            2) canvas의 height을 넘어서 움직이려 할 때, y 값을 증감 방향을 반대로 바꿔준다. 
+             - y 값이 증가할수록, 공은 캔버스에서 아래로 내려간다. 너무 높아져서, ballRadius보다 높아지면 dy의 값이 - 되기 시작한다. 
+             - y 값이 낮아질수록, 공은 캔버스에서 위로 올라간다. 너무 낮아져서, ballRadius보다 낮아지면 dy의 값이 + 되기 시작한다. 
+
+            */
+
+            if(y + dy < ballRadius || y + dy > canvas.height-ballRadius) {
+                dy = -dy;
+            }
+
+            x += dx;
+            y += dy;
+        }
+    
+    setInterval(draw, 10);
+        
+    </script>
+</body>
+</html>
