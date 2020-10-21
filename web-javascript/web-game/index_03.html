@@ -23,12 +23,8 @@
         let rightPressed = false;
         let leftPressed = false;
 
-        // 
-
         document.addEventListener("keydown", keyDownHandler, false);
         document.addEventListener("keyup", keyUpHandler, false);
-
-        // keyDownHandler를 사용하는 까닭은 키보드가 눌렸을 때, 공이 움직이려면 키보드를 눌렀는지 확인하는 과정이 우선적으로 필요하기 때문이다. 
 
         function keyDownHandler(e){
             if(e.keyCode == 39){
@@ -54,8 +50,6 @@
             ctx.closePath();
         }
 
-        // 패들 그리기 
-
         function drawPaddle(){
             ctx.beginPath();
             ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
@@ -68,26 +62,39 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             drawBall();
             drawPaddle();
+            
             if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
                 dx = -dx;
             }
-            if(y + dy < ballRadius || y + dy > canvas.height-ballRadius) {
+/* 
+게임 오버 기능 추가하기 : y 값이 증가할수록 아래로 내려가기 때문에 y + dy의 값이 canvas.height-ballRadius보다 커지면 캔버스 화면 상에서 아래로 사라진다. 그 때, "Game Over"라는 메세지 창을 띄우고 화면을 다시 reload할 수 있다. 
+*/
+            if(y + dy < ballRadius) {
                 dy = -dy;
+            } else if (y + dy > canvas.height-ballRadius){
+/* 
+Paddle로 공을 튕겨내는 기능 추가하기 : 바닥에 닿았을 때 
+*/ 
+                if(x > paddleX && x < paddleX + paddleWidth){
+                    dy = -dy;
+// 시작했을 때 : 120(공의 x축 위치) 310(공의 y축 위치) 97.5(패들의 X축 위치) 172.5(패들 + 패들의 넓이)
+                } else {
+// 종료됐을 때 : 120(공의 x축 위치) 310(공의 y축 위치) 272.5(패들의 X축 위치)
+                    alert("Game Over");
+                    document.location.reload();
+                }
             }
             
-        // paddle의 너비가 캔버스를 벗어나지 않는 선에서 RigthPressed되면 paddleX의 값이 증가한다. 반대로 LeftPressed되면 PaddleX의 값이 감소한다. 
-
             if(rightPressed && paddleX < canvas.width-paddleWidth){
                 paddleX += 7;
             } else if(leftPressed && paddleX > 0){
                 paddleX -= 7;
             }
-
+            
             x += dx;
             y += dy;
         }
 
-        
         setInterval(draw, 10);
         
     </script>
