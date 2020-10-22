@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+    let arr = [10, 3, 1, 6, -1, 6, 7, 18];
+
+    function selectionSort(arr){
+        let newArr = [];
+        let temp, minIndex = 0;
+        for(let i=0; i<arr.length; i++){
+            let minvalue = arr[i];
+        // console.log("minvalue", minvalue);
+            for(let j=i; j<arr.length; j++){
+                if(arr[j] <= minvalue){
+                    minvalue = arr[j];
+        // console.log("minvalue 2", minvalue);
+                    minIndex = j;
+                }
+            }
+
+        // 여기서 swap을 한 번 해줘야 한다. 
+
+            temp = arr[i];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = temp;
+
+            newArr.push(arr[i]);
+        }
+        return newArr;
+    }
+
+    console.log(selectionSort(arr));
+    
+    </script>
+</body>
+</html>
