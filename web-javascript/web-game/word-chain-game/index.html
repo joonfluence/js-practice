@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word-Chain-Game</title>
+</head>
+<body>
+    <script>
+
+        /* 
+
+        구현 요구사항
+
+        1. 제시어를 입력한다. 
+        2. 제시어의 마지막 글자와 일치하는 단어를 대답한다. 
+        3. 마지막 글자와 일치하는지 확인한다.
+        4. 만약, 맞다면 제시어를 바꾼다.
+        5. 만약, 맞지 않다면 다시 입력하도록 요구한다. 
+
+        */
+        
+        function wordChainGame(){
+        //console.log(input);
+        //console.log(typeof input);
+
+            for(i=0; ;i++){
+                let input = prompt("제시어를 입력하세요");
+                let value = input.length-1;
+                
+                if(input === "그만"){
+                    break;
+                }
+                
+                let answer = prompt("대답어를 입력하세요");
+                
+                if(answer[0]===input[value]){
+                    input = answer;
+                    console.log("다음 글자의 끝말을 입력하세요", input);
+                } else if(answer === "그만"){
+                    break;
+                } else {
+                    answer = prompt("다시 입력해주세요");
+                    if(answer[0]===input[value]){
+                        input = answer;
+                        console.log("값을 바꿀게요", input);
+                    }
+                }
+            }
+        }
+        
+        // if(answer[0]===input[value]){
+        //     input = answer;
+        // } else {
+        //     prompt("다시 입력해주세요");
+        // }
+        
+        wordChainGame();
+        
+    </script>
+</body>
+</html>
