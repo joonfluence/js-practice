@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr =  [0, 7, 2, 5, 3, 6, 4, 1, 8, 9];
+        let n = arr.length;
+        let i, j, temp;
+        let index;
+
+    function insertionSort(arr){
+        for(i=1; i<arr.length; i++){
+            temp = arr[i];
+            index = i;
+            console.log("temp ", temp)
+            /* 
+            
+            숫자 1은 계속 바뀔 것임. 인덱스를 i에서 가져올 것임. 
+            여기선 temp를 지정해주는 역할만 해준다. 
+
+             */
+
+            for(j=i; j>0;j--){
+                if(temp < arr[j-1]){
+                    arr[j] = arr[j-1];
+                    index = j-1;
+                    console.log("  index", index);
+                }
+            
+                /* 
+            
+            삽입 정렬이 실제로 이루어지는 곳. 값을 비교하고, 원하는 위치에 넣어준다. 
+
+            temp : arr[1] <-> arr[0]과 값이 바뀐 것으로 판단됨. 
+            arr[1]으로 지정된 temp 값이 arr[0]보다 작으면, arr[0] 자리에 temp를 넣는다. 
+            정확히는 선택정렬과 같이, 해당 인덱스를 반환해주고 해당 인덱스에 temp 값을 넣는다. 
+            
+            */
+
+            }
+
+            /* 여기서 값이 잘못 설정된 것임. 여기만 바꿔주면 될 것임.  */
+            // arr[1]보다 temp가 더 작으면 그대로 간다. 
+            // if(arr[index])
+
+            arr[index] = temp;
+            console.log("       i", i);
+            console.log("       index", index);
+            console.log("    arr[index] ", arr[index]);
+            console.log("       arr", arr);
+        }
+        return arr;
+    }
+
+    console.log(insertionSort([2, -5, 10, 99, 83, 66, 2, 1, 0, 10]));
+
+    </script>
+</body>
+</html>
