@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        /* 
+
+        공백*3 + 별*1
+        공백*2 + 별*3
+        공백*1 + 별*5
+        공백*0 + 별*7
+        공백*1 + 별*5
+        공백*2 + 별*3
+        공백*3 + 별*1
+        
+        */
+
+        /*        
+        
+        let space = 3;
+        for(let star_plus=1; star_plus<=7; star_plus+=2){
+            console.log(' '.repeat(space)+'*'.repeat(star_plus));
+            space--;
+        }
+
+        let space_plus = 0;
+        for(let star_minus=7; star_minus>=1; star_minus-=2){
+            console.log(' '.repeat(space_plus)+'*'.repeat(star_minus));
+            space_plus++;
+        } 
+        
+        */
+
+        let star = -1;
+        let space = 3;
+
+        while(true){
+            
+            if(star === -1){
+                console.log(' '.repeat(space)+'*');
+            }
+
+            space -= 1;
+            star -= 2;
+            console.log(' '.repeat(Math.abs(space))+'*'.repeat(Math.abs(star)));
+            
+            if(star === 1){
+                break;
+            } else if(star === -7){
+                star = -star;
+            } else if(space === -3){
+                break;
+            }
+
+        }
+
+    </script>
+</body>
+</html>
