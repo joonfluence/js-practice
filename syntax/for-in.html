@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const object = { a: { a: 1 }, b: { b: 1 }, c: { c: 3 } };
+
+        var keys = Object.keys(object);
+        console.log(keys);
+
+        for (let i = 0; i < keys.length; i++) {
+            console.log(object[keys[i]]);
+        }
+
+        console.log(object["a"]);
+        console.log(object.b);
+        console.log(object.c);
+        for (const property in object) {
+            console.log(`${property}: ${object[property]}`);
+        }
+
+    </script>
+</body>
+
+</html>

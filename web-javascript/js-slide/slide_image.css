@@ -1,0 +1,6 @@
+* { padding: 0; margin: 0; border: 0;}
+
+.img__box__one { position: absolute; background-color: teal; left: 25%; top: 12.5%; width: 300px; height: 300px; z-index: 2; }
+.img__box__two { position: absolute; background-color: tomato; left: 25%; top: 12.5%; width: 300px; height: 300px; z-index: 10; }
+.img__box__three { position: absolute; background-color: violet; left: 25%; top: 12.5%; width: 300px; height: 300px; z-index: 30; }
+

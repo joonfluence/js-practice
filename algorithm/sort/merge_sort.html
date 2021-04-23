@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+ /* 
+    
+    알고리즘 
+
+    1) 수열을 반씩 분할한다. 
+        
+        1 ~ (2^n-1)과 (2^n-1) ~ 2^n으로 구분해준다. "문제는 n이 무엇이냐"이다. 이를 위해, 밑이 2인 log를 쓰고, 내림하여 준다. 
+        ** 잠깐, 위 식은 맞는지 따져보자. 맞다, 맞는데 재귀적으로 구현되야한다. 
+        예를 들어, 1-2-3-4-5-6-7-8-9의 요소들을 가진 배열이 있으면 각각을 [1, 2], [3, 4], [5, 6], [7, 8], [9]로 나눠주고 [1, 2, 3, 4]와 [5, 6, 7, 8] 그리고 [9], [1, 2, 3, 4, 5, 6, 7, 8]과 [9]로 나눠준다.
+
+    2) 더 이상 분할할 수 없을 때까지 분할한다. 분할은 재귀적으로 이뤄지며, 더이상 나눌 수 없을 때 병합을 시작할 것이다. 
+        
+        
+        
+    3) 각 그룹을 병합해나간다. 
+        
+        그룹 병합이라면 각 그룹의 선두 요소들의 값을 비교하여 정렬한 후, 병합한다.
+        
+    4) 병합할 때에는 병합 후의 그룹 내에서 숫자가 작은 순으로 나열되도록 한다. 
+        
+        
+        
+    5) 그룹 병합 작업은 모든 숫자가 하나의 그룹이 될때까지 재귀적으로 반복한다. 
+        
+        
+        
+    */
+
+    let arr =  [0, 7, 2, 5, 3, 6, 4, 1, 8, 9];
+    let arrLength = arr.length;
+    let num = (Math.log(arrLength)/Math.log(2));
+    
+    console.log(arrLength);
+    console.log(num);
+
+    function mergeSort(arr, num){
+        
+        if(num<0){
+            break; // 확실하지 않음. 
+        }
+        
+        // 분할작업
+        merge(arr, 0, num-1);  // 2번쨰 인자가 확실하지 않음. 
+        merge(arr, num-1, num); 
+
+        return arr;
+    }
+
+    function merge(arr, start, end){
+
+
+        /* 
+        if(){
+        arr[0]과 arr[1] 간의 비교. 작은 값은 앞으로, 큰 값을 뒤로 배치한다.
+        arr[2]와 arr[3] 간의 비교. 작은 값은 앞으로, 큰 값을 뒤로 배치한다.
+        }
+        */
+    
+    }
+
+    </script>
+</body>
+</html>

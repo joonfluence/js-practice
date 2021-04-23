@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="slide_image2.css">
+</head>
+<body>
+    <div class="parent">
+        <!-- image가 추가될 부분 -->
+    </div>
+    <input type="button" class="prev_btn" alt="prev" value="prev">
+    <input type="button" class="next_btn" alt="next" value="next">
+    <script>
+        let parent = document.querySelector('.parent');
+        let child = document.createElement('img');
+        parent.appendChild(child);
+
+        let prevBtn = document.querySelector('.prev_btn'),
+        nextBtn = document.querySelector('.next_btn');
+
+        console.log(prevBtn);
+        console.log(nextBtn);
+
+        function randomNum(size){
+            return Math.floor((Math.random())*size)+1;
+        }
+
+        function getImage(num){
+            child.src=`image${randomNum(num)}.png`;
+        }
+
+        function slideImage(){
+            getImage(2);
+        }
+        
+        function init(){
+            slideImage();
+            prevBtn.addEventListener('click', slideImage);
+            nextBtn.addEventListener('click', slideImage);
+        }
+
+        init();
+
+    </script>
+</body>
+</html>

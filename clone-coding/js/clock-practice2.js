@@ -4,7 +4,7 @@ clockContent = clock.querySelector('h1');
 function loadTime(){
     const time = new Date();
     const year = time.getFullYear();
-    const month = time.getMonth();
+    const month = time.getMonth() + 1;
     const date = time.getDate();
     const hour = time.getHours();
     const minute = time.getMinutes();

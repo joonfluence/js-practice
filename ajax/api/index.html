@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API 연습</title>
+</head>
+<body>
+    <h1>API 연습해서 개발자로 취업하자</h1>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous">
+    </script>
+    <script>
+        $.ajax({
+            method: "GET",
+            url: "https://dapi.kakao.com/v3/search/book?target=title",
+            data: { query : "미움받을 용기" },
+            headers: { Authorizaition : "KakaoAK 39e9e288e889d68c642a6e8ef13fd47b"}
+        })
+            .done(function (msg) {
+                console.log("Data Saved: " + msg);
+            });
+    </script>
+</body>
+
+</html>

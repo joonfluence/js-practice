@@ -6,12 +6,14 @@ const USER_LS = "currentUser",
 SHOWING_CN = "showing";
 
 /* 
+
 UserName 저장하고 인사하기
     1. Name을 Load한다. 값이 입력되었을 때와 그렇지 않을 경우를 나눠서 생각한다.
     2. 사용자 정보가 입력된 경우엔, greeting.innerText를 통해 입력된 값을 그대로 화면에 보여준다. 
     3. 입력되지 않은 경우엔, form 태그를 통해 받은 값을 넘겨준다. 
     4. greeting.innerText를 통해 입력된 값을 그대로 화면에 보여준다.  
     5. 입력된 값을 localStorage에 저장하고 끝이 난다. 
+    
 */
 
 function saveName(text) {
@@ -57,3 +59,4 @@ function init(){
 }
 
 init();
+

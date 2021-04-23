@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="slide_image.css">
+</head>
+<body>
+    
+    <div class="img__box__one">1</div>
+    <div class="img__box__two">2</div>
+    <div class="img__box__three">3</div>
+
+    <script>
+        
+        // z-index를 사용하는 방법 (X, 잘 작동하지 않는다)
+
+        let slide_one = document.querySelector(".img__box__one"),
+        slide_two = document.querySelector(".img__box__two"),
+        slide_three = document.querySelector(".img__box__three");
+
+        slide_two.style.zindex = 990;
+
+    
+
+    </script>
+</body>
+</html>

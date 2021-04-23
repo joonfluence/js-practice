@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="parent">
+        <!-- image가 추가될 부분 -->
+    </div>
+    <script>
+        // let image_one = document.querySelector('.image__01'),
+        // image_two = document.querySelector('.image__02');
+
+        let parent = document.querySelector('.parent');
+        let child = document.createElement('img');
+        parent.appendChild(child);
+        
+        // let text = document.createTextNode("안녕하세요");
+        // child.appendChild(text);
+        
+        console.log(child);
+
+        function randomNum(size){
+            return Math.floor((Math.random())*size)+1;
+        }
+
+        function getImage(num){
+            child.src=`image${randomNum(2)}.png`;
+        }
+
+        function init(){
+            getImage(2);
+        }
+
+        init();
+
+    </script>
+</body>
+</html>
